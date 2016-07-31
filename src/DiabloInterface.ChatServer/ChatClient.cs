@@ -19,39 +19,32 @@ namespace DiabloInterface.ChatServer
         }
     }
 
-    public class KottiClient
+    public class ChatClient
     {
-        private Dictionary<string, ChannelManager> _ChannelManagers = new Dictionary<string, ChannelManager>();
-
-
         public class SimpleCommand
         {
             public string Message { get; set; } 
 
         }
-
         public string Server {get; set;}
         public string User {get; set;}
         public string Password {get; set;}
         public string Nick {get; set;}
-
         public string ActiveChannel { get; set; }
 
+        private ChannelManager manager;
 
         private IrcClient _Client;
         private IrcUser _User;
         private Thread ClientThread;
 
-
-        // so we need to add a command - have a custom action to handle it, but we need also generic actions like
-        // send message
-
-        public KottiClient(string server, string user, string password, string nick)
+        public ChatClient(string server, string user, string password, string nick, string channel)
         {
             Server = server;
             User = user;
             Password = password;
             Nick = nick;
+            ActiveChannel = channel;
         }
 
         public void Connect()
@@ -84,7 +77,7 @@ namespace DiabloInterface.ChatServer
         {
 
             string channel = e.PrivateMessage.Source;
-            _ChannelManagers[channel].HandleMessage(e.PrivateMessage);
+            manager.HandleMessage(e.PrivateMessage);
 
             string message = string.Format("CM: {0} <{1}> {2}", channel, e.PrivateMessage.User.Nick, e.PrivateMessage.Message);
             Console.WriteLine(message);
@@ -148,7 +141,6 @@ namespace DiabloInterface.ChatServer
         {
             _Client.JoinChannel(p);
             ChannelManager mgr = new ChannelManager(this, p);
-            _ChannelManagers.Add(p, mgr);
         }
 
         public void LeaveChannel(string channel)
@@ -157,12 +149,12 @@ namespace DiabloInterface.ChatServer
             // it wont get any messages as we left channel.
 
             _Client.PartChannel(channel);
-            _ChannelManagers[channel].Suspend();
+            manager.Suspend();
         }
 
         public void AddSimpleCommand(string channel, string command, string output)
         {
-            _ChannelManagers[channel].AddSimpleCommand(command, output);
+            manager.AddSimpleCommand(command, output);
         }
     }
 }

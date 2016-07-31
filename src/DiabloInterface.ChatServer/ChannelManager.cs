@@ -10,14 +10,14 @@ namespace DiabloInterface.ChatServer
     public class ChannelManager
     {
 
-        public KottiClient Client { get; set; }
+        public ChatClient Client { get; set; }
 
         public string Channel { get; set; }
 
         private Dictionary<string, GenericCommand> _Commands;
         private Dictionary<string, DateTime> _LastUsed;
 
-        public ChannelManager(KottiClient client, string channel)
+        public ChannelManager(ChatClient client, string channel)
         {
             Client = client;
             Channel = channel;
@@ -105,8 +105,6 @@ namespace DiabloInterface.ChatServer
         {
             // need to stop any timeds stuff etc
         }
-
-
     }
 
 }
