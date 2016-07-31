@@ -5,17 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using ChatSharp;
 using System.Threading;
+using DiabloInterface.D2;
 
 namespace DiabloInterface.ChatServer
 {
     public class GenericCommand
     {
-        public Action<Object> Action { get; set; }
+        public Action<string, object> Action { get; set; }
         public Object Parameter { get; set; }
 
-        public void Execute()
+        public void Execute(string message)
         {
-            Action(Parameter);
+            Action(message, Parameter);
         }
     }
 
@@ -38,7 +39,7 @@ namespace DiabloInterface.ChatServer
         private IrcUser _User;
         private Thread ClientThread;
 
-        public ChatClient(string server, string user, string password, string nick, string channel)
+        public ChatClient(string server, string user, string password, string nick, string channel, D2DataReader dataReader)
         {
             Server = server;
             User = user;

@@ -1,6 +1,7 @@
 ﻿using ChatSharp;
 using System;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +10,27 @@ namespace DiabloInterface.ChatServer
 {
     public class ChannelManager
     {
-
         public ChatClient Client { get; set; }
 
         public string Channel { get; set; }
 
         private Dictionary<string, GenericCommand> _Commands;
         private Dictionary<string, DateTime> _LastUsed;
+
+        private List<string> validSlots = new List<string>()
+        {
+            "helm",
+            "body",
+            "amulet",
+            "rings",
+            "belt",
+            "gloves",
+            "boots",
+            "weapon1",
+            "offhand1",
+            "weapon2",
+            "offhand2"
+        };
 
         public ChannelManager(ChatClient client, string channel)
         {
@@ -25,19 +40,16 @@ namespace DiabloInterface.ChatServer
             _Commands = new Dictionary<string, GenericCommand>();
             _LastUsed = new Dictionary<string, DateTime>();
 
-            AddCommand("!wr", new GenericCommand()
+            AddCommand("simpletest", new GenericCommand()
             {
                 Action = PrintStringCommand,
-                Parameter = "The world record for Hitman Absolution Expert/Max Ratings is... oh who cares, it is a terrible game anyway and only fools run it!"
+                Parameter = "A simple test reply to a simple test command"
             });
 
-            AddCommand("!whydoesitsuck", new GenericCommand()
+            AddCommand("item", new GenericCommand()
             {
-                Action = PrintStringCommand,
-                Parameter = "My thoughts on Absolution: http://forums.eidosgames.com/showthread.php?t=153432"
+                Action = GetItemCommand
             });
-
-            
         }
 
         public void HandleMessage(PrivateMessage msg) 
@@ -51,9 +63,8 @@ namespace DiabloInterface.ChatServer
             if (msg.Message.StartsWith("!"))
             {
                 // we have a potential command
-
-                string[] split = msg.Message.Split(' ');
-                string command = split[0];
+                string command = msg.Message.Substring(1, msg.Message.IndexOf(' '));
+                string message = msg.Message.Substring(msg.Message.IndexOf(' ') + 1);
 
                 if (_Commands.ContainsKey(command))
                 {
@@ -68,13 +79,13 @@ namespace DiabloInterface.ChatServer
                         else
                         {
                             _LastUsed[command] = DateTime.Now;
-                            _Commands[command].Execute();
+                            _Commands[command].Execute(message);
                         }
                     }
                     else
                     {
                         _LastUsed.Add(command, DateTime.Now);
-                        _Commands[command].Execute();
+                        _Commands[command].Execute(message);
                     }
                 }
             }
@@ -95,12 +106,36 @@ namespace DiabloInterface.ChatServer
             _Commands.Add(comm, new GenericCommand() { Action = PrintStringCommand, Parameter = param });
         }
 
-        void PrintStringCommand(object msg)
+        void PrintStringCommand(string message, object parameter)
         {
-            string message = (string)msg;
-            Client.SendMessage(message, Channel);
+            Client.SendMessage((string)parameter, Channel);
         }
-        
+
+        void GetItemCommand(string message, object parameter)
+        {
+            if (string.IsNullOrWhiteSpace(message))
+            {
+                // need to send a how to use to chat
+                return;
+            }
+
+            string slot = message.Substring(0, message.IndexOf(' '));
+
+            if (!validSlots.Contains(slot))
+            {
+                // need to send a how to use to chat
+                return;
+            }
+
+            string retVal = "";
+
+            //todo: need to move all this to async calls
+            StreamString
+
+            Client.SendMessage(retVal,Channel);
+        }
+
+
         public void Suspend()
         {
             // need to stop any timeds stuff etc
