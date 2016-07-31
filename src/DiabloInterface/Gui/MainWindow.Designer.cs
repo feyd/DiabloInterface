@@ -32,12 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadConfigMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debugMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadConfigMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.horizontalLayout1 = new DiabloInterface.Gui.Controls.HorizontalLayout();
             this.verticalLayout2 = new DiabloInterface.Gui.Controls.VerticalLayout();
+            this.chatClientMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,25 +49,32 @@
             this.loadConfigMenuItem,
             this.resetToolStripMenuItem,
             this.debugMenuItem,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.chatClientMenuItem});
             this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(161, 92);
+            this.contextMenu.Size = new System.Drawing.Size(181, 158);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Image = global::DiabloInterface.Properties.Resources.wrench_orange;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsMenuItem_Click);
+            // 
+            // loadConfigMenuItem
+            // 
+            this.loadConfigMenuItem.Name = "loadConfigMenuItem";
+            this.loadConfigMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadConfigMenuItem.Text = "Load Config";
             // 
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Image = global::DiabloInterface.Properties.Resources.arrow_refresh;
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
             this.resetToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.resetToolStripMenuItem.Text = "Reset";
             this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetMenuItem_Click);
             // 
@@ -74,7 +82,7 @@
             // 
             this.debugMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("debugMenuItem.Image")));
             this.debugMenuItem.Name = "debugMenuItem";
-            this.debugMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.debugMenuItem.Size = new System.Drawing.Size(180, 22);
             this.debugMenuItem.Text = "Debug";
             this.debugMenuItem.Click += new System.EventHandler(this.debugMenuItem_Click);
             // 
@@ -82,15 +90,9 @@
             // 
             this.exitToolStripMenuItem.Image = global::DiabloInterface.Properties.Resources.cross;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
-            // 
-            // loadConfigMenuItem
-            // 
-            this.loadConfigMenuItem.Name = "loadConfigMenuItem";
-            this.loadConfigMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.loadConfigMenuItem.Text = "Load Config";
             // 
             // horizontalLayout1
             // 
@@ -106,7 +108,6 @@
             // 
             // verticalLayout2
             // 
-            // verticalLayout2
             this.verticalLayout2.AutoSize = true;
             this.verticalLayout2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.verticalLayout2.BackColor = System.Drawing.Color.Black;
@@ -115,6 +116,13 @@
             this.verticalLayout2.Name = "verticalLayout2";
             this.verticalLayout2.Size = new System.Drawing.Size(730, 514);
             this.verticalLayout2.TabIndex = 2;
+            // 
+            // chatClientMenuItem
+            // 
+            this.chatClientMenuItem.Name = "chatClientMenuItem";
+            this.chatClientMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.chatClientMenuItem.Text = "Chat Client Window";
+            this.chatClientMenuItem.Click += new System.EventHandler(this.chatClientMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -151,6 +159,7 @@
         
         private Controls.VerticalLayout verticalLayout2;
         private Controls.HorizontalLayout horizontalLayout1;
+        private System.Windows.Forms.ToolStripMenuItem chatClientMenuItem;
     }
 }
 

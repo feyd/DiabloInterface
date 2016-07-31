@@ -66,9 +66,20 @@ namespace DiabloInterface.ChatServer
         {
             if (msg.Message.StartsWith("!"))
             {
-                // we have a potential command
-                string command = msg.Message.Substring(1, msg.Message.IndexOf(' '));
-                string message = msg.Message.Substring(msg.Message.IndexOf(' ') + 1);
+                // we have a potential command, see if there is any more text after
+                string command;
+                string message;
+
+                if (msg.Message.IndexOf(' ') < 0)
+                {
+                    command = msg.Message.Substring(1);
+                    message = String.Empty;
+                }
+                else
+                {
+                    command = msg.Message.Substring(1, msg.Message.IndexOf(' ')-1);
+                    message = msg.Message.Substring(msg.Message.IndexOf(' ') + 1);
+                }
 
                 if (_Commands.ContainsKey(command))
                 {
@@ -123,12 +134,15 @@ namespace DiabloInterface.ChatServer
                 return;
             }
 
-            string slot = message.Substring(0, message.IndexOf(' '));
+            string slot;
 
-            if (!validSlots.Contains(slot))
+            if (message.IndexOf(' ') < 0)
             {
-                // need to send a how to use to chat
-                return;
+                slot = message;
+            }
+            else
+            {
+                slot = message.Substring(0, message.IndexOf(' '));
             }
 
             //todo: need to move all this to async calls

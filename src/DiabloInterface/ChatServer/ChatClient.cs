@@ -144,14 +144,21 @@ namespace DiabloInterface.ChatServer
         {
             _Client.JoinChannel(p);
             ChannelManager mgr = new ChannelManager(this, p, _DataReader);
+            manager = mgr;
         }
 
         public void LeaveChannel(string channel)
         {
             // lets just pause it, as we may rejoin and will save rebuilding data from disk
             // it wont get any messages as we left channel.
+            try
+            {
+                // can get an exception if we try to leave a channel that wasnt joined
+                _Client.PartChannel(channel);
+            }
+            catch (Exception ex)
+            { }
 
-            _Client.PartChannel(channel);
             manager.Suspend();
         }
 

@@ -60,6 +60,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ChatSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\external\ChatSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -83,6 +87,8 @@
   <ItemGroup>
     <Compile Include="AutoSplit.cs" />
     <Compile Include="AutoSplitFactory.cs" />
+    <Compile Include="ChatServer\ChannelManager.cs" />
+    <Compile Include="ChatServer\ChatClient.cs" />
     <Compile Include="D2\D2QuestHelper.cs" />
     <Compile Include="D2\D2GameInfo.cs" />
     <Compile Include="D2\Readers\RangeStatData.cs" />
@@ -116,6 +122,12 @@
     <Compile Include="D2\Struct\D2UniqueItemDescription.cs" />
     <Compile Include="D2\Struct\D2Unit.cs" />
     <Compile Include="D2\Struct\DataPointer.cs" />
+    <Compile Include="Gui\ChatControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\ChatControl.Designer.cs">
+      <DependentUpon>ChatControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Controls\AutoSplitSettingsRow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -181,6 +193,7 @@
     <Compile Include="Gui\Controls\RuneDisplayElement.Designer.cs">
       <DependentUpon>RuneDisplayElement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="Serialization\DefaultLegacySettingsResolver.cs" />
     <Compile Include="Serialization\ILegacySettingsObject.cs" />
     <Compile Include="Serialization\ILegacySettingsResolver.cs" />
@@ -213,6 +226,9 @@
     <Compile Include="Serialization\JsonSettingsReader.cs" />
     <Compile Include="SettingsPersistence.cs" />
     <Compile Include="VersionChecker.cs" />
+    <EmbeddedResource Include="Gui\ChatControl.resx">
+      <DependentUpon>ChatControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\Controls\AutoSplitSettingsRow.resx">
       <DependentUpon>AutoSplitSettingsRow.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,12 +314,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DiabloInterface.ChatServer\DiabloInterface.ChatServer.csproj">
-      <Project>{e162bf99-f007-4e25-acd9-312d4205ddad}</Project>
-      <Name>DiabloInterface.ChatServer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

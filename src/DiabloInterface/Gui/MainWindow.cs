@@ -8,6 +8,7 @@ using DiabloInterface.Logging;
 using System.Text;
 using DiabloInterface.D2;
 using DiabloInterface.Gui.Forms;
+using DiabloInterface.ChatServer;
 
 namespace DiabloInterface.Gui
 {
@@ -26,6 +27,8 @@ namespace DiabloInterface.Gui
 
         D2DataReader dataReader;
         ItemServer itemServer;
+
+        ChatClient chatClient;
 
         public MainWindow()
         {
@@ -63,6 +66,21 @@ namespace DiabloInterface.Gui
 
             // Create and use the new logger.
             Logger.Instance = new Logger(logWriters);
+        }
+
+        void InitializeChatClient()
+        {
+            //todo: check if chat is enabled and settings are filled in
+            // for now hard coded for testing
+
+            chatClient = new ChatClient(
+                "irc.twitch.tv:6667",
+                "kottibot",
+                "oauth:cr8qwtdfjeb17b1lyivzothgbx2giz",
+                "kottibot",
+                "wdfeyd",
+                dataReader
+                );
         }
 
         void WriteLogHeader()
@@ -238,6 +256,8 @@ namespace DiabloInterface.Gui
             }
 
             ApplySettings(Settings);
+
+            InitializeChatClient();
         }
 
         public void UpdateLabels(Character player, Dictionary<int, int> itemClassMap)
@@ -436,6 +456,16 @@ namespace DiabloInterface.Gui
             var settings = LoadSettings(fileName);
             Properties.Settings.Default.SettingsFile = fileName;
             ApplySettings(settings);
+        }
+
+        private void chatClientMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["Chat Control"] as ChatControl == null)
+            {
+                ChatControl ccontrol = new ChatControl(chatClient);
+                ccontrol.Show();
+            }
+            else { (Application.OpenForms["Chat Control"] as ChatControl).Focus(); }
         }
     }
 }

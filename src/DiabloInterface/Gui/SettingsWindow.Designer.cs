@@ -54,6 +54,7 @@
             this.ctxConfigFileList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuNew = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLoad = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuClone = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.HorizontalSplitContainer = new System.Windows.Forms.TableLayoutPanel();
@@ -102,12 +103,22 @@
             this.VersionGroup = new System.Windows.Forms.GroupBox();
             this.VersionLabel = new System.Windows.Forms.Label();
             this.VersionComboBox = new System.Windows.Forms.ComboBox();
+            this.tabPageSettingsChat = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtChannel = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtServer = new System.Windows.Forms.TextBox();
+            this.lblServer = new System.Windows.Forms.Label();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.txtUser = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSaveAs = new System.Windows.Forms.Button();
             this.btnUndo = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FontGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.titleFontSizeNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeNumeric)).BeginInit();
@@ -129,6 +140,8 @@
             this.DataGroup.SuspendLayout();
             this.UpdateGroup.SuspendLayout();
             this.VersionGroup.SuspendLayout();
+            this.tabPageSettingsChat.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -234,7 +247,7 @@
             this.AutoSplitLayout.RowCount = 2;
             this.AutoSplitLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.AutoSplitLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.AutoSplitLayout.Size = new System.Drawing.Size(497, 439);
+            this.AutoSplitLayout.Size = new System.Drawing.Size(497, 440);
             this.AutoSplitLayout.TabIndex = 21;
             // 
             // AutoSplitToolbar
@@ -246,7 +259,7 @@
             this.AutoSplitToolbar.Controls.Add(this.EnableAutosplitCheckBox);
             this.AutoSplitToolbar.Controls.Add(this.AddAutoSplitButton);
             this.AutoSplitToolbar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AutoSplitToolbar.Location = new System.Drawing.Point(0, 408);
+            this.AutoSplitToolbar.Location = new System.Drawing.Point(0, 409);
             this.AutoSplitToolbar.Margin = new System.Windows.Forms.Padding(0);
             this.AutoSplitToolbar.Name = "AutoSplitToolbar";
             this.AutoSplitToolbar.Size = new System.Drawing.Size(497, 31);
@@ -358,7 +371,7 @@
             this.VerticalSplitContainer.Name = "VerticalSplitContainer";
             this.VerticalSplitContainer.RowCount = 1;
             this.VerticalSplitContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.VerticalSplitContainer.Size = new System.Drawing.Size(686, 471);
+            this.VerticalSplitContainer.Size = new System.Drawing.Size(686, 472);
             this.VerticalSplitContainer.TabIndex = 20;
             // 
             // grpConfigFiles
@@ -367,7 +380,7 @@
             this.grpConfigFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpConfigFiles.Location = new System.Drawing.Point(3, 3);
             this.grpConfigFiles.Name = "grpConfigFiles";
-            this.grpConfigFiles.Size = new System.Drawing.Size(169, 465);
+            this.grpConfigFiles.Size = new System.Drawing.Size(169, 466);
             this.grpConfigFiles.TabIndex = 3;
             this.grpConfigFiles.TabStop = false;
             this.grpConfigFiles.Text = "Config Files";
@@ -379,7 +392,7 @@
             this.lstConfigFiles.FormattingEnabled = true;
             this.lstConfigFiles.Location = new System.Drawing.Point(3, 16);
             this.lstConfigFiles.Name = "lstConfigFiles";
-            this.lstConfigFiles.Size = new System.Drawing.Size(163, 446);
+            this.lstConfigFiles.Size = new System.Drawing.Size(163, 447);
             this.lstConfigFiles.TabIndex = 2;
             this.lstConfigFiles.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstConfigFiles_MouseDoubleClick);
             this.lstConfigFiles.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lstConfigFiles_MouseUp);
@@ -393,33 +406,40 @@
             this.menuClone,
             this.menuDelete});
             this.ctxConfigFileList.Name = "ctxConfigFileList";
-            this.ctxConfigFileList.Size = new System.Drawing.Size(153, 136);
+            this.ctxConfigFileList.Size = new System.Drawing.Size(118, 114);
             // 
             // menuNew
             // 
             this.menuNew.Name = "menuNew";
-            this.menuNew.Size = new System.Drawing.Size(152, 22);
+            this.menuNew.Size = new System.Drawing.Size(117, 22);
             this.menuNew.Text = "New";
             this.menuNew.Click += new System.EventHandler(this.menuNew_Click);
             // 
             // menuLoad
             // 
             this.menuLoad.Name = "menuLoad";
-            this.menuLoad.Size = new System.Drawing.Size(152, 22);
+            this.menuLoad.Size = new System.Drawing.Size(117, 22);
             this.menuLoad.Text = "Load";
             this.menuLoad.Click += new System.EventHandler(this.menuLoad_Click);
+            // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.renameToolStripMenuItem.Text = "Rename";
+            this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
             // menuClone
             // 
             this.menuClone.Name = "menuClone";
-            this.menuClone.Size = new System.Drawing.Size(152, 22);
+            this.menuClone.Size = new System.Drawing.Size(117, 22);
             this.menuClone.Text = "Clone";
             this.menuClone.Click += new System.EventHandler(this.menuClone_Click);
             // 
             // menuDelete
             // 
             this.menuDelete.Name = "menuDelete";
-            this.menuDelete.Size = new System.Drawing.Size(152, 22);
+            this.menuDelete.Size = new System.Drawing.Size(117, 22);
             this.menuDelete.Text = "Delete";
             this.menuDelete.Click += new System.EventHandler(this.menuDelete_Click);
             // 
@@ -436,7 +456,7 @@
             this.HorizontalSplitContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.HorizontalSplitContainer.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.HorizontalSplitContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.HorizontalSplitContainer.Size = new System.Drawing.Size(511, 471);
+            this.HorizontalSplitContainer.Size = new System.Drawing.Size(511, 472);
             this.HorizontalSplitContainer.TabIndex = 0;
             // 
             // tabControl1
@@ -445,11 +465,12 @@
             this.tabControl1.Controls.Add(this.tabPageSettingsRunes);
             this.tabControl1.Controls.Add(this.tabPageSettingsAutosplit);
             this.tabControl1.Controls.Add(this.tabPageSettingsMisc);
+            this.tabControl1.Controls.Add(this.tabPageSettingsChat);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(505, 465);
+            this.tabControl1.Size = new System.Drawing.Size(505, 466);
             this.tabControl1.TabIndex = 13;
             // 
             // tabPageSettingsLayout
@@ -463,7 +484,7 @@
             this.tabPageSettingsLayout.Location = new System.Drawing.Point(4, 22);
             this.tabPageSettingsLayout.Name = "tabPageSettingsLayout";
             this.tabPageSettingsLayout.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSettingsLayout.Size = new System.Drawing.Size(497, 439);
+            this.tabPageSettingsLayout.Size = new System.Drawing.Size(497, 440);
             this.tabPageSettingsLayout.TabIndex = 1;
             this.tabPageSettingsLayout.Text = "Layout";
             this.tabPageSettingsLayout.UseVisualStyleBackColor = true;
@@ -764,7 +785,7 @@
             this.tabPageSettingsRunes.Controls.Add(this.tableLayoutPanel1);
             this.tabPageSettingsRunes.Location = new System.Drawing.Point(4, 22);
             this.tabPageSettingsRunes.Name = "tabPageSettingsRunes";
-            this.tabPageSettingsRunes.Size = new System.Drawing.Size(497, 439);
+            this.tabPageSettingsRunes.Size = new System.Drawing.Size(497, 440);
             this.tabPageSettingsRunes.TabIndex = 2;
             this.tabPageSettingsRunes.Text = "Runes";
             this.tabPageSettingsRunes.UseVisualStyleBackColor = true;
@@ -782,7 +803,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(497, 439);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(497, 440);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // panel2
@@ -795,7 +816,7 @@
             this.panel2.Controls.Add(this.AddRuneButton);
             this.panel2.Controls.Add(this.cbRuneWord);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 389);
+            this.panel2.Location = new System.Drawing.Point(0, 390);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(497, 50);
@@ -841,7 +862,7 @@
             this.RuneDisplayPanel.Location = new System.Drawing.Point(0, 0);
             this.RuneDisplayPanel.Margin = new System.Windows.Forms.Padding(0);
             this.RuneDisplayPanel.Name = "RuneDisplayPanel";
-            this.RuneDisplayPanel.Size = new System.Drawing.Size(497, 389);
+            this.RuneDisplayPanel.Size = new System.Drawing.Size(497, 390);
             this.RuneDisplayPanel.TabIndex = 7;
             // 
             // tabPageSettingsAutosplit
@@ -849,7 +870,7 @@
             this.tabPageSettingsAutosplit.Controls.Add(this.AutoSplitLayout);
             this.tabPageSettingsAutosplit.Location = new System.Drawing.Point(4, 22);
             this.tabPageSettingsAutosplit.Name = "tabPageSettingsAutosplit";
-            this.tabPageSettingsAutosplit.Size = new System.Drawing.Size(497, 439);
+            this.tabPageSettingsAutosplit.Size = new System.Drawing.Size(497, 440);
             this.tabPageSettingsAutosplit.TabIndex = 0;
             this.tabPageSettingsAutosplit.Text = "Auto-Split";
             this.tabPageSettingsAutosplit.UseVisualStyleBackColor = true;
@@ -862,7 +883,7 @@
             this.tabPageSettingsMisc.Location = new System.Drawing.Point(4, 22);
             this.tabPageSettingsMisc.Name = "tabPageSettingsMisc";
             this.tabPageSettingsMisc.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSettingsMisc.Size = new System.Drawing.Size(497, 439);
+            this.tabPageSettingsMisc.Size = new System.Drawing.Size(497, 440);
             this.tabPageSettingsMisc.TabIndex = 3;
             this.tabPageSettingsMisc.Text = "Misc";
             this.tabPageSettingsMisc.UseVisualStyleBackColor = true;
@@ -955,6 +976,110 @@
             this.VersionComboBox.Size = new System.Drawing.Size(117, 21);
             this.VersionComboBox.TabIndex = 0;
             // 
+            // tabPageSettingsChat
+            // 
+            this.tabPageSettingsChat.Controls.Add(this.groupBox2);
+            this.tabPageSettingsChat.Controls.Add(this.label5);
+            this.tabPageSettingsChat.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSettingsChat.Name = "tabPageSettingsChat";
+            this.tabPageSettingsChat.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSettingsChat.Size = new System.Drawing.Size(497, 440);
+            this.tabPageSettingsChat.TabIndex = 4;
+            this.tabPageSettingsChat.Text = "Chat";
+            this.tabPageSettingsChat.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtChannel);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.txtServer);
+            this.groupBox2.Controls.Add(this.lblServer);
+            this.groupBox2.Controls.Add(this.txtPass);
+            this.groupBox2.Controls.Add(this.txtUser);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.txtUsername);
+            this.groupBox2.Location = new System.Drawing.Point(9, 136);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(354, 127);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Connection Details";
+            // 
+            // txtChannel
+            // 
+            this.txtChannel.Location = new System.Drawing.Point(87, 97);
+            this.txtChannel.Name = "txtChannel";
+            this.txtChannel.Size = new System.Drawing.Size(252, 20);
+            this.txtChannel.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 100);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Channel:";
+            // 
+            // txtServer
+            // 
+            this.txtServer.Location = new System.Drawing.Point(87, 19);
+            this.txtServer.Name = "txtServer";
+            this.txtServer.Size = new System.Drawing.Size(252, 20);
+            this.txtServer.TabIndex = 2;
+            this.txtServer.Text = "irc.twitch.tv:6667";
+            // 
+            // lblServer
+            // 
+            this.lblServer.AutoSize = true;
+            this.lblServer.Location = new System.Drawing.Point(5, 22);
+            this.lblServer.Name = "lblServer";
+            this.lblServer.Size = new System.Drawing.Size(41, 13);
+            this.lblServer.TabIndex = 1;
+            this.lblServer.Text = "Server:";
+            // 
+            // txtPass
+            // 
+            this.txtPass.Location = new System.Drawing.Point(87, 71);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(252, 20);
+            this.txtPass.TabIndex = 6;
+            // 
+            // txtUser
+            // 
+            this.txtUser.AutoSize = true;
+            this.txtUser.Location = new System.Drawing.Point(5, 48);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(32, 13);
+            this.txtUser.TabIndex = 3;
+            this.txtUser.Text = "User:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "OAuth Token:";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(87, 45);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(252, 20);
+            this.txtUsername.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(380, 104);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "To enable the chat functionality for your stream please follow these instructions" +
+    ":\r\n\r\nyada \r\nyada\r\nyada\r\nyada\r\nyada\r\nyada\r\n";
+            // 
             // mainPanel
             // 
             this.mainPanel.ColumnCount = 1;
@@ -968,7 +1093,7 @@
             this.mainPanel.RowCount = 2;
             this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.mainPanel.Size = new System.Drawing.Size(686, 503);
+            this.mainPanel.Size = new System.Drawing.Size(686, 504);
             this.mainPanel.TabIndex = 23;
             // 
             // panel1
@@ -977,7 +1102,7 @@
             this.panel1.Controls.Add(this.btnUndo);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 471);
+            this.panel1.Location = new System.Drawing.Point(0, 472);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(686, 32);
@@ -1016,18 +1141,11 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // renameToolStripMenuItem
-            // 
-            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.renameToolStripMenuItem.Text = "Rename";
-            this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
-            // 
             // SettingsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 503);
+            this.ClientSize = new System.Drawing.Size(686, 504);
             this.Controls.Add(this.mainPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(702, 542);
@@ -1065,6 +1183,10 @@
             this.UpdateGroup.PerformLayout();
             this.VersionGroup.ResumeLayout(false);
             this.VersionGroup.PerformLayout();
+            this.tabPageSettingsChat.ResumeLayout(false);
+            this.tabPageSettingsChat.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.mainPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1150,5 +1272,16 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.NumericUpDown numericUpDownPaddingInVerticalLayout;
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPageSettingsChat;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtChannel;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtServer;
+        private System.Windows.Forms.Label lblServer;
+        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.Label txtUser;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label label5;
     }
 }
