@@ -7,6 +7,7 @@ using System.IO;
 using System.IO.Pipes;
 using System.Text;
 using System.Threading;
+using DiabloInterface.Helpers;
 
 namespace DiabloInterface.Server
 {
@@ -99,60 +100,8 @@ namespace DiabloInterface.Server
                 return locations;
 
             var name = request.EquipmentSlot.ToLowerInvariant();
-            switch (name)
-            {
-                case "helm":
-                case "head":
-                    locations.Add(BodyLocation.Head);
-                    break;
-                case "armor":
-                case "body":
-                case "torso":
-                    locations.Add(BodyLocation.BodyArmor);
-                    break;
-                case "amulet":
-                    locations.Add(BodyLocation.Amulet);
-                    break;
-                case "ring":
-                case "rings":
-                    locations.Add(BodyLocation.RingLeft);
-                    locations.Add(BodyLocation.RingRight);
-                    break;
-                case "belt":
-                    locations.Add(BodyLocation.Belt);
-                    break;
-                case "glove":
-                case "gloves":
-                case "hand":
-                    locations.Add(BodyLocation.Gloves);
-                    break;
-                case "boot":
-                case "boots":
-                case "foot":
-                case "feet":
-                    locations.Add(BodyLocation.Boots);
-                    break;
-                case "primary":
-                case "weapon":
-                    locations.Add(BodyLocation.PrimaryLeft);
-                    break;
-                case "offhand":
-                case "shield":
-                    locations.Add(BodyLocation.PrimaryRight);
-                    break;
-                case "weapon2":
-                case "secondary":
-                    locations.Add(BodyLocation.SecondaryLeft);
-                    break;
-                case "secondaryshield":
-                case "secondaryoffhand":
-                case "shield2":
-                    locations.Add(BodyLocation.SecondaryRight);
-                    break;
-                default: break;
-            }
-
-            return locations;
+            
+            return Utility.ParseItemLocation(name);
         }
     }
 }

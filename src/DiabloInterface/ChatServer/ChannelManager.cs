@@ -1,4 +1,6 @@
 ﻿using ChatSharp;
+using DiabloInterface.D2;
+using DiabloInterface.Server;
 using System;
 using System.Collections.Generic;
 using System.IO.Pipes;
@@ -16,6 +18,7 @@ namespace DiabloInterface.ChatServer
 
         private Dictionary<string, GenericCommand> _Commands;
         private Dictionary<string, DateTime> _LastUsed;
+        private D2DataReader _DataReader;
 
         private List<string> validSlots = new List<string>()
         {
@@ -32,10 +35,11 @@ namespace DiabloInterface.ChatServer
             "offhand2"
         };
 
-        public ChannelManager(ChatClient client, string channel)
+        public ChannelManager(ChatClient client, string channel, D2DataReader reader)
         {
             Client = client;
             Channel = channel;
+            _DataReader = reader;
 
             _Commands = new Dictionary<string, GenericCommand>();
             _LastUsed = new Dictionary<string, DateTime>();
@@ -127,12 +131,22 @@ namespace DiabloInterface.ChatServer
                 return;
             }
 
-            string retVal = "";
-
             //todo: need to move all this to async calls
-            StreamString
 
-            Client.SendMessage(retVal,Channel);
+            List<ItemResponse> response = new List<ItemResponse>();
+
+            _DataReader.ItemSlotAction(Helpers.Utility.ParseItemLocation(slot),
+                (itemReader, item) => {
+                    ItemResponse data = new ItemResponse();
+                    data.ItemName = itemReader.GetFullItemName(item);
+                    data.Properties = itemReader.GetMagicalStrings(item);
+                    response.Add(data);
+                });
+
+            foreach (var item in response)
+            {
+                Client.SendMessage(item.ItemName, Channel);
+            }
         }
 
 

@@ -37,7 +37,8 @@ namespace DiabloInterface.ChatServer
 
         private IrcClient _Client;
         private IrcUser _User;
-        private Thread ClientThread;
+        private Thread _ClientThread;
+        private D2DataReader _DataReader;
 
         public ChatClient(string server, string user, string password, string nick, string channel, D2DataReader dataReader)
         {
@@ -46,6 +47,7 @@ namespace DiabloInterface.ChatServer
             Password = password;
             Nick = nick;
             ActiveChannel = channel;
+            _DataReader = dataReader;
         }
 
         public void Connect()
@@ -59,14 +61,14 @@ namespace DiabloInterface.ChatServer
             _Client.UserMessageRecieved += Client_UserMessageRecieved;
             _Client.ChannelMessageRecieved += Client_ChannelMessageRecieved;
 
-            ClientThread = new Thread(ThreadInitialiser);
-            ClientThread.Start();
+            _ClientThread = new Thread(ThreadInitialiser);
+            _ClientThread.Start();
         }
 
         public void Disconnect()
         {
             _Client.Quit();
-            ClientThread.Abort();
+            _ClientThread.Abort();
         }
 
         public void ThreadInitialiser()
@@ -141,7 +143,7 @@ namespace DiabloInterface.ChatServer
         public void JoinChannel(string p)
         {
             _Client.JoinChannel(p);
-            ChannelManager mgr = new ChannelManager(this, p);
+            ChannelManager mgr = new ChannelManager(this, p, _DataReader);
         }
 
         public void LeaveChannel(string channel)
