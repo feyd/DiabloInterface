@@ -299,7 +299,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DiabloInterface.ChatServer\DiabloInterface.ChatServer.csproj">
+      <Project>{e162bf99-f007-4e25-acd9-312d4205ddad}</Project>
+      <Name>DiabloInterface.ChatServer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

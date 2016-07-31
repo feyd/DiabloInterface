@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.25302.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiabloInterface", "DiabloInterface\DiabloInterface.csproj", "{25BB3310-9BD7-4234-AF7D-9F7FB6870A20}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj", "{D9A9D63E-4A48-4429-9098-478AEC6304E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiabloInterface.ChatServer", "DiabloInterface.ChatServer\DiabloInterface.ChatServer.csproj", "{E162BF99-F007-4E25-ACD9-312D4205DDAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D9A9D63E-4A48-4429-9098-478AEC6304E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9A9D63E-4A48-4429-9098-478AEC6304E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9A9D63E-4A48-4429-9098-478AEC6304E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E162BF99-F007-4E25-ACD9-312D4205DDAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E162BF99-F007-4E25-ACD9-312D4205DDAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E162BF99-F007-4E25-ACD9-312D4205DDAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E162BF99-F007-4E25-ACD9-312D4205DDAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

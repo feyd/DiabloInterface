@@ -5,6 +5,8 @@
 /src/DiabloInterface/bin
 /src/DiabloInterface/obj
 /src/.vs
+/src/DiabloInterface.ChatServer/bin
+/src/DiabloInterface.ChatServer/obj
 /src/DiabloInterface/DiabloInterface.csproj.user
 
 /src/tests/bin
