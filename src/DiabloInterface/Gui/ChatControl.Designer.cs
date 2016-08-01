@@ -30,7 +30,7 @@
         {
             this.btnConnect = new System.Windows.Forms.Button();
             this.btnDisconnect = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtOutput = new System.Windows.Forms.TextBox();
             this.txtSimpleMessage = new System.Windows.Forms.TextBox();
             this.btnSendSimpleMessage = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -66,13 +66,14 @@
             this.btnDisconnect.UseVisualStyleBackColor = true;
             this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
-            // textBox1
+            // txtOutput
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 325);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(622, 225);
-            this.textBox1.TabIndex = 3;
+            this.txtOutput.Location = new System.Drawing.Point(15, 325);
+            this.txtOutput.Multiline = true;
+            this.txtOutput.Name = "txtOutput";
+            this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtOutput.Size = new System.Drawing.Size(622, 225);
+            this.txtOutput.TabIndex = 3;
             // 
             // txtSimpleMessage
             // 
@@ -197,7 +198,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnSendSimpleMessage);
             this.Controls.Add(this.txtSimpleMessage);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.btnConnect);
             this.Name = "ChatControl";
@@ -212,7 +213,7 @@
         #endregion
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Button btnDisconnect;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtOutput;
         private System.Windows.Forms.TextBox txtSimpleMessage;
         private System.Windows.Forms.Button btnSendSimpleMessage;
         private System.Windows.Forms.GroupBox groupBox2;

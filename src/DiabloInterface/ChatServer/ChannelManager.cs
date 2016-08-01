@@ -159,7 +159,11 @@ namespace DiabloInterface.ChatServer
 
             foreach (var item in response)
             {
-                Client.SendMessage(item.ItemName, Channel);
+                string properties = string.Join(", ", item.Properties);
+                if(String.IsNullOrWhiteSpace(properties))
+                    Client.SendMessage($"{item.ItemName}: Nothing special", Channel);
+                else
+                    Client.SendMessage($"{item.ItemName}: {properties}", Channel);
             }
         }
 
