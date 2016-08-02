@@ -16,6 +16,7 @@ namespace DiabloInterface.Gui
     public partial class ChatControl : Form
     {
         private ChatClient _Client;
+        private D2DataReader _Reader;
         public ChatControl()
         {
             InitializeComponent();
@@ -26,19 +27,16 @@ namespace DiabloInterface.Gui
         {
             InitializeComponent();
             Name = "Chat Control";
+            _Reader = reader;
 
             txtServer.Text = Properties.ChatClientSettings.Default.Server;
             txtUsername.Text = Properties.ChatClientSettings.Default.User;
             txtPass.Text = Properties.ChatClientSettings.Default.Password;
             txtChannel.Text = Properties.ChatClientSettings.Default.Channel;
-
-            InitializeChatClient(reader);
-
-            _Client.MessageHandler += DisplayMessage;
         }
 
 
-        void InitializeChatClient(D2DataReader dataReader)
+        void InitializeChatClient()
         {
             _Client = new ChatClient(
                     new ChatConfig()
@@ -48,7 +46,7 @@ namespace DiabloInterface.Gui
                         Password = txtPass.Text,
                         Channel = txtChannel.Text
                     },
-                    dataReader
+                    _Reader
                     );
         }
 
@@ -59,6 +57,8 @@ namespace DiabloInterface.Gui
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            InitializeChatClient();
+            _Client.MessageHandler += DisplayMessage;
             _Client.Connect();
         }
 
