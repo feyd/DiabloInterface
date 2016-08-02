@@ -194,6 +194,11 @@
       <DependentUpon>RuneDisplayElement.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Helpers.cs" />
+    <Compile Include="Properties\ChatClientSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>ChatClientSettings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Serialization\DefaultLegacySettingsResolver.cs" />
     <Compile Include="Serialization\ILegacySettingsObject.cs" />
     <Compile Include="Serialization\ILegacySettingsResolver.cs" />
@@ -273,6 +278,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\ChatClientSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>ChatClientSettings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

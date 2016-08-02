@@ -68,26 +68,6 @@ namespace DiabloInterface.Gui
             Logger.Instance = new Logger(logWriters);
         }
 
-        void InitializeChatClient()
-        {
-            //todo: check if chat is enabled and settings are filled in
-            // for now hard coded for testing
-            // actually should initialise on the chat control screen probably
-            if (Settings.ChatServerEnabled)
-            {
-                chatClient = new ChatClient(
-                    new ChatConfig()
-                    {
-                        Server = "irc.twitch.tv:6667",
-                        User = "kottibot",
-                        Password = "oauth:cr8qwtdfjeb17b1lyivzothgbx2giz",
-                        Channel = "wdfeyd"
-                    },
-                    dataReader
-                    );
-            }
-        }
-
         void WriteLogHeader()
         {
             Logger.Instance.WriteLineRaw("Diablo Interface Version {0}", Application.ProductVersion);
@@ -261,8 +241,6 @@ namespace DiabloInterface.Gui
             }
 
             ApplySettings(Settings);
-
-            InitializeChatClient();
         }
 
         public void UpdateLabels(Character player, Dictionary<int, int> itemClassMap)
@@ -467,7 +445,7 @@ namespace DiabloInterface.Gui
         {
             if (Application.OpenForms["Chat Control"] as ChatControl == null)
             {
-                ChatControl ccontrol = new ChatControl(chatClient);
+                ChatControl ccontrol = new ChatControl(dataReader);
                 ccontrol.Show();
             }
             else { (Application.OpenForms["Chat Control"] as ChatControl).Focus(); }

@@ -1,4 +1,5 @@
 ﻿using DiabloInterface.ChatServer;
+using DiabloInterface.D2;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,12 +22,34 @@ namespace DiabloInterface.Gui
             Name = "Chat Control";
         }
 
-        public ChatControl(ChatClient client)
+        public ChatControl(D2DataReader reader)
         {
             InitializeComponent();
-            _Client = client;
             Name = "Chat Control";
+
+            txtServer.Text = Properties.ChatClientSettings.Default.Server;
+            txtUser.Text = Properties.ChatClientSettings.Default.User;
+            txtPass.Text = Properties.ChatClientSettings.Default.Password;
+            txtChannel.Text = Properties.ChatClientSettings.Default.Channel;
+
+            InitializeChatClient(reader);
+
             _Client.MessageHandler += DisplayMessage;
+        }
+
+
+        void InitializeChatClient(D2DataReader dataReader)
+        {
+            _Client = new ChatClient(
+                    new ChatConfig()
+                    {
+                        Server = txtServer.Text, 
+                        User = txtUser.Text, 
+                        Password = txtPass.Text,
+                        Channel = txtChannel.Text
+                    },
+                    dataReader
+                    );
         }
 
         private void DisplayMessage(object sender, string msg)
