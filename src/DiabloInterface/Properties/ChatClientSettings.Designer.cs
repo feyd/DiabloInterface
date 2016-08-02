@@ -25,7 +25,7 @@ namespace DiabloInterface.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("kottibot")]
+        [global::System.Configuration.DefaultSettingValueAttribute("username")]
         public string User {
             get {
                 return ((string)(this["User"]));
@@ -37,7 +37,7 @@ namespace DiabloInterface.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("oauth:cr8qwtdfjeb17b1lyivzothgbx2giz")]
+        [global::System.Configuration.DefaultSettingValueAttribute("password")]
         public string Password {
             get {
                 return ((string)(this["Password"]));
@@ -61,7 +61,7 @@ namespace DiabloInterface.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("wdfeyd")]
+        [global::System.Configuration.DefaultSettingValueAttribute("channel")]
         public string Channel {
             get {
                 return ((string)(this["Channel"]));
