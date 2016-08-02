@@ -44,7 +44,7 @@ namespace DiabloInterface.Gui
                     new ChatConfig()
                     {
                         Server = txtServer.Text, 
-                        User = txtUser.Text, 
+                        User = txtUsername.Text, 
                         Password = txtPass.Text,
                         Channel = txtChannel.Text
                     },
