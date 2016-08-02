@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 using ChatSharp;
 using System.Threading;
 using DiabloInterface.D2;
+using DiabloInterface.Gui;
 
 namespace DiabloInterface.ChatServer
 {
+    //todo: need to pass user in to the command execute in case of whisper
     public class GenericCommand
     {
         public Action<string, object> Action { get; set; }
         public Object Parameter { get; set; }
-
         public void Execute(string message)
         {
             Action(message, Parameter);
@@ -40,13 +41,13 @@ namespace DiabloInterface.ChatServer
         private Thread _ClientThread;
         private D2DataReader _DataReader;
 
-        public ChatClient(string server, string user, string password, string nick, string channel, D2DataReader dataReader)
+        public ChatClient(ChatConfig config, D2DataReader dataReader)
         {
-            Server = server;
-            User = user;
-            Password = password;
-            Nick = nick;
-            ActiveChannel = channel;
+            Server = config.Server;
+            User = config.User;
+            Password = config.Password;
+            Nick = config.User;
+            ActiveChannel = config.Channel;
             _DataReader = dataReader;
         }
 

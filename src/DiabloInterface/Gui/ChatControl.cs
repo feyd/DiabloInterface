@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -53,5 +54,14 @@ namespace DiabloInterface.Gui
         {
             _Client.JoinChannel(txtChannel.Text);
         }
+    }
+
+    public class ChatConfig
+    {
+        public string Server { get; set; }
+        public string User { get; set; }
+        public string Password { get; set; }
+        public string Channel { get; set; }
+
     }
 }

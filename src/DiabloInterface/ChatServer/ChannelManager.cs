@@ -20,21 +20,6 @@ namespace DiabloInterface.ChatServer
         private Dictionary<string, DateTime> _LastUsed;
         private D2DataReader _DataReader;
 
-        private List<string> validSlots = new List<string>()
-        {
-            "helm",
-            "body",
-            "amulet",
-            "rings",
-            "belt",
-            "gloves",
-            "boots",
-            "weapon1",
-            "offhand1",
-            "weapon2",
-            "offhand2"
-        };
-
         public ChannelManager(ChatClient client, string channel, D2DataReader reader)
         {
             Client = client;
@@ -130,7 +115,9 @@ namespace DiabloInterface.ChatServer
         {
             if (string.IsNullOrWhiteSpace(message))
             {
-                // need to send a how to use to chat
+                //todo: proper help message
+                string help = "To use the item command please specify a location: helm, etc etc";
+                Client.SendMessage(help, Channel);
                 return;
             }
 

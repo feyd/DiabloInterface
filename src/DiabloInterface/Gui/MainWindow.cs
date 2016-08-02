@@ -72,15 +72,20 @@ namespace DiabloInterface.Gui
         {
             //todo: check if chat is enabled and settings are filled in
             // for now hard coded for testing
-
-            chatClient = new ChatClient(
-                "irc.twitch.tv:6667",
-                "kottibot",
-                "oauth:cr8qwtdfjeb17b1lyivzothgbx2giz",
-                "kottibot",
-                "wdfeyd",
-                dataReader
-                );
+            // actually should initialise on the chat control screen probably
+            if (Settings.ChatServerEnabled)
+            {
+                chatClient = new ChatClient(
+                    new ChatConfig()
+                    {
+                        Server = "irc.twitch.tv:6667",
+                        User = "kottibot",
+                        Password = "oauth:cr8qwtdfjeb17b1lyivzothgbx2giz",
+                        Channel = "wdfeyd"
+                    },
+                    dataReader
+                    );
+            }
         }
 
         void WriteLogHeader()

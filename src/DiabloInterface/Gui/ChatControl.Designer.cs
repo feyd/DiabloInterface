@@ -58,7 +58,7 @@
             // 
             // btnDisconnect
             // 
-            this.btnDisconnect.Location = new System.Drawing.Point(15, 174);
+            this.btnDisconnect.Location = new System.Drawing.Point(96, 145);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(75, 23);
             this.btnDisconnect.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             // txtOutput
             // 
-            this.txtOutput.Location = new System.Drawing.Point(15, 325);
+            this.txtOutput.Location = new System.Drawing.Point(12, 174);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -77,7 +77,7 @@
             // 
             // txtSimpleMessage
             // 
-            this.txtSimpleMessage.Location = new System.Drawing.Point(15, 204);
+            this.txtSimpleMessage.Location = new System.Drawing.Point(15, 435);
             this.txtSimpleMessage.Multiline = true;
             this.txtSimpleMessage.Name = "txtSimpleMessage";
             this.txtSimpleMessage.Size = new System.Drawing.Size(511, 99);
@@ -86,9 +86,9 @@
             // 
             // btnSendSimpleMessage
             // 
-            this.btnSendSimpleMessage.Location = new System.Drawing.Point(532, 202);
+            this.btnSendSimpleMessage.Location = new System.Drawing.Point(532, 435);
             this.btnSendSimpleMessage.Name = "btnSendSimpleMessage";
-            this.btnSendSimpleMessage.Size = new System.Drawing.Size(105, 23);
+            this.btnSendSimpleMessage.Size = new System.Drawing.Size(92, 23);
             this.btnSendSimpleMessage.TabIndex = 5;
             this.btnSendSimpleMessage.Text = "Send Message";
             this.btnSendSimpleMessage.UseVisualStyleBackColor = true;
@@ -181,11 +181,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(102, 145);
+            this.button1.Location = new System.Drawing.Point(15, 405);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(86, 23);
             this.button1.TabIndex = 10;
-            this.button1.Text = "join";
+            this.button1.Text = "Join Channel";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

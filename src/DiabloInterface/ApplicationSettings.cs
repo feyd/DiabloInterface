@@ -6,6 +6,7 @@ namespace DiabloInterface
 {
     public class ApplicationSettings
     {
+        public bool ChatServerEnabled { get; set; } = false;
         public string FileFolder { get; set; } = "Files";
         public string FontName { get; set; } = "Courier New";
         public string D2Version { get; set; }
