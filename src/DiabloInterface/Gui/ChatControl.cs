@@ -28,7 +28,7 @@ namespace DiabloInterface.Gui
             Name = "Chat Control";
 
             txtServer.Text = Properties.ChatClientSettings.Default.Server;
-            txtUser.Text = Properties.ChatClientSettings.Default.User;
+            txtUsername.Text = Properties.ChatClientSettings.Default.User;
             txtPass.Text = Properties.ChatClientSettings.Default.Password;
             txtChannel.Text = Properties.ChatClientSettings.Default.Channel;
 
